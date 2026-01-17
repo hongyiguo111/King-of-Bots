@@ -60,7 +60,7 @@ export default {
                 success() {
                     store.dispatch("getinfo", {
                         success() {
-                            router.push({});
+                            router.push({ name: 'home' });
                         }
                     });
                     router.push({ name: 'home' });
