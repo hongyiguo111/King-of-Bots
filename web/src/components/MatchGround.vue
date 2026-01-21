@@ -1,5 +1,5 @@
 <template>
-    <div class="playground">
+    <div class="matchground">
         <div class="row">
             <div class="col-6">
                 <div class="user-photo">
@@ -17,28 +17,49 @@
                     {{ $store.state.pk.opponent_username }}
                 </div>
             </div>
+            <div class="col-12">
+                <button @click="click_match_btn" class="btn btn-warning">{{ match_btn_info }}</button>
+            </div>
         </div>
-        <GameMap></GameMap>
     </div>
 </template>
 
 <script>
-import GameMap from './GameMap.vue';
+import { ref } from 'vue';
+import { useStore } from 'vuex';
 
 export default {
     components: {
-        GameMap
+
+    },
+    setup() {
+        const store = useStore();
+        let match_btn_info = ref("开始匹配");
+
+        const click_match_btn = () => {
+            if (match_btn_info.value === "开始匹配") {
+                match_btn_info.value = "取消匹配";
+                store.state.pk.socket.send(JSON.stringify({
+                    event: "start-matching",
+                    data: {}
+                }));
+            } else {
+                match_btn_info.value = "开始匹配";
+                store.state.pk.socket.send(JSON.stringify({
+                    event: "stop-matching",
+                    data: {}
+                }));
+            }
+        };
+        return {
+            match_btn_info,
+            click_match_btn
+        };
     }
 }
 </script>
 
 <style scoped>
-div.playground {
-    width: 60vw;
-    height: 70vh;
-    margin: 40px auto;
-}
-
 div.matchground {
     width: 60vw;
     height: 70vh;
