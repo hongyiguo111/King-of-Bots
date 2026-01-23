@@ -75,9 +75,6 @@ export default {
                         data.error(resp);
                     }
                 },
-                error(resp) {
-                    data.error_message(resp);
-                }
             });
         },
         logout(context) {

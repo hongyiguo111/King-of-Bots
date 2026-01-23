@@ -58,6 +58,7 @@ export class Snake extends AcGameObject {
 
     check_tail_increasing() { // 检测当前回合, 蛇的长度是否增加
         if (this.step <= 10) return true;
+        // 三步一增长
         if (this.step % 3 === 1) return true;
         return false;
     }
@@ -73,10 +74,6 @@ export class Snake extends AcGameObject {
         const k = this.cells.length;
         for (let i = k; i > 0; i--) {
             this.cells[i] = JSON.parse(JSON.stringify(this.cells[i - 1]));
-        }
-
-        if (!this.gamemap.check_valid(this.next_cell)) { // 下一步操作撞了
-            this.status = "die";
         }
     }
 
