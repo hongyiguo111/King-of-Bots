@@ -64,13 +64,16 @@ div.matchground {
     width: 60vw;
     height: 70vh;
     margin: 40px auto;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(240, 240, 240, 0.4));
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: #3f3f74;
+    border: 4px solid #fff;
+    box-shadow:
+        8px 8px 0 #000,
+        inset -4px -4px 0 #2a2a50,
+        inset 4px 4px 0 #5555a0;
     padding: 40px 20px;
     display: flex;
     align-items: center;
+    image-rendering: pixelated;
 }
 
 div.matchground .row {
@@ -86,25 +89,26 @@ div.matchground .row {
 .user-photo img {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
     border: 4px solid #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 4px 4px 0 #000;
+    image-rendering: pixelated;
+    transition: transform 0.1s;
 }
 
 .user-photo img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
 }
 
 .user-username {
     text-align: center;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     margin-top: 15px;
-    color: #333;
-    letter-spacing: 0.5px;
+    color: #ffcd75;
+    font-family: 'Courier New', monospace;
+    text-shadow: 3px 3px 0 #000;
+    letter-spacing: 1px;
 }
 
 .col-12 {
@@ -112,18 +116,35 @@ div.matchground .row {
     margin-top: 50px;
 }
 
-.col-12 .btn-primary {
-    padding: 12px 40px;
+.col-12 .btn {
+    padding: 14px 48px;
     font-size: 18px;
-    border-radius: 30px;
-    border: none;
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
-    transition: all 0.3s ease;
+    background: #5fcde4;
+    border: 4px solid #fff;
+    box-shadow: 4px 4px 0 #000;
+    color: #222034;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: transform 0.1s;
+    border-radius: 0;
 }
 
-.col-12 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+.col-12 .btn:hover {
+    background: #cbdbfc;
+}
+
+.col-12 .btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #000;
+}
+
+.col-12 .btn-warning {
+    background: #ffcd75;
+}
+
+.col-12 .btn-warning:hover {
+    background: #ffe0a3;
 }
 </style>
