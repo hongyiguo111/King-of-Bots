@@ -12,6 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Player {
     private Integer id;
+    private Integer BotId; // -1 表示没有使用AI, 否则表示使用的AI的ID
+    private String botCode;
     private Integer sx; // 起始位置的行坐标
     private Integer sy; // 起始位置的列坐标
     private List<Integer> steps; // 操作序列: 0上 1右 2下 3左
