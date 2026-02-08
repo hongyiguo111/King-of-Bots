@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import Moduleuser from './user.js'
 import ModulePk from './pk.js'
+import ModuleRecord from './record.js'
 
 export default createStore({
   state: {
@@ -13,6 +14,7 @@ export default createStore({
   },
   modules: {
     user: Moduleuser,
-    pk: ModulePk
+    pk: ModulePk,
+    record: ModuleRecord,
   }
 })

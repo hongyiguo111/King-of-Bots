@@ -1,6 +1,6 @@
 <template>
     <div class="playground">
-        <div class="row">
+        <div class="row" v-if="!$store.state.record.is_record">
             <div class="col-6">
                 <div class="user-photo">
                     <img :src="$store.state.user.photo" alt="">
@@ -15,6 +15,24 @@
                 </div>
                 <div class="user-username">
                     {{ $store.state.pk.opponent_username }}
+                </div>
+            </div>
+        </div>
+        <div class="row" v-else>
+            <div class="col-6">
+                <div class="user-photo">
+                    <img :src="$store.state.record.a_photo" alt="">
+                </div>
+                <div class="user-username">
+                    {{ $store.state.record.a_username }}
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="user-photo">
+                    <img :src="$store.state.record.b_photo" alt="">
+                </div>
+                <div class="user-username">
+                    {{ $store.state.record.b_username }}
                 </div>
             </div>
         </div>

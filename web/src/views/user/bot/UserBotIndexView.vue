@@ -5,6 +5,7 @@
                 <div class="card" style="margin-top: 20px">
                     <div class="card-body">
                         <img :src="$store.state.user.photo" alt="" style="width: 100%">
+                        <span class="username-display">{{ $store.state.user.username }}</span>
                     </div>
                 </div>
             </div>
@@ -268,5 +269,17 @@ div.error-message {
 
 table td {
     vertical-align: middle;
+}
+
+.username-display {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: 1000;
+    line-height: 1.5;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 </style>

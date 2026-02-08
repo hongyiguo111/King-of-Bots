@@ -8,21 +8,29 @@
             <div class="result-text lose" v-else-if="($store.state.pk.loser === 'A' && $store.state.pk.a_id === parseInt($store.state.user.id)) ||
                 ($store.state.pk.loser === 'B' && $store.state.pk.b_id === parseInt($store.state.user.id))">
                 YOU LOSE!
+                <br>
+                Rating -2
             </div>
             <div class="result-text win" v-else>
                 YOU WIN!
+                <br>
+                Rating +5
             </div>
-            <button @click="restart" class="pixel-btn">RESTART</button>
+            <button @click="restart" class="pixel-btn">再来一局</button>
+            <button @click="checkRecord" class="pixel-btn">查看回放</button>
+            <button @click="checkRankList" class="pixel-btn">查看排名</button>
         </div>
     </div>
 </template>
 
 <script>
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 export default {
     setup() {
         const store = useStore();
+        const router = useRouter();
         const restart = () => {
             store.commit('updateStatus', 'matching');
             store.commit('updateLoser', 'none');
@@ -30,9 +38,21 @@ export default {
                 photo: "https://cdn.acwing.com/media/article/image/2022/08/09/1_1db2488f17-anonymous.png",
                 username: "我的对手"
             });
-        }
+        };
+
+        const checkRecord = () => {
+            router.push('/record/');
+        };
+
+        const checkRankList = () => {
+            router.push('/ranklist/');
+        };
+
+
         return {
-            restart
+            restart,
+            checkRecord,
+            checkRankList
         }
     }
 }
